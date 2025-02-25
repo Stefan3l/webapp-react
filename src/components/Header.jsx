@@ -1,1 +1,5 @@
-export default function Header() {}
+import NavBar from "./NavBar";
+
+export default function Header() {
+  return <NavBar />;
+}

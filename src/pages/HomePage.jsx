@@ -14,7 +14,14 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Home Page</h1>
+      <div className=" flex justify-center w-full relative">
+        <img
+          className="w-1/4 absolute -mt-[70px] logo"
+          src="../images/Logo.png"
+          alt="logo"
+        />
+      </div>
+      <hr />
       {movies.map((movie) => (
         <div key={movie.id}>{movie.title}</div>
       ))}

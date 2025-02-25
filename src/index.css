@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+/* --------------------
+   GENERALS
+--------------------    */
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -100px 100px;
+  }
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: black
+    url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: moveStars 10s linear infinite;
+}
+
+/* --------------------
+   NAVBAR
+--------------------    */
+
+.logo {
+  filter: drop-shadow(5px 5px 10px red);
+}
+
+.link {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 5px; /* Spațiu pentru border */
+  filter: drop-shadow(5px 5px 10px red);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.link:hover::after {
+  width: 100%;
+  left: 0;
+}
