@@ -1,16 +1,22 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// PAGES
+// LAYOUTS
+import DefaultLayout from "./layouts/DefaultLayout";
 
+// PAGES
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
+import PageNotFound from "./pages/PageNotFound";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index Component={HomePage}></Route>
-        <Route to="/movie/" Component={MoviePage}></Route>
+        <Route Component={DefaultLayout}>
+          <Route index path="/" Component={HomePage}></Route>
+          <Route path="/movies/:id" Component={MoviePage}></Route>
+          <Route path="*" Component={PageNotFound}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
