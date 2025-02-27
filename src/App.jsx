@@ -15,8 +15,8 @@ export default function App() {
         <Route Component={DefaultLayout}>
           <Route index path="/" Component={HomePage}></Route>
           <Route path="/movies/:id" Component={MoviePage}></Route>
-          <Route path="*" Component={PageNotFound}></Route>
         </Route>
+        <Route path="*" Component={PageNotFound}></Route>
       </Routes>
     </BrowserRouter>
   );

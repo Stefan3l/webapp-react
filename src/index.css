@@ -30,27 +30,173 @@ body {
 }
 
 .link {
-  display: inline-block;
   position: relative;
   text-decoration: none;
-  color: white;
-  font-size: 18px;
+  color: black;
   padding-bottom: 5px; /* Spațiu pentru border */
-  filter: drop-shadow(5px 5px 10px red);
+  font-size: 1.125rem;
 }
 
 .link::after {
   content: "";
   position: absolute;
-  left: 50%;
   bottom: 0;
+  left: 50%;
   width: 0;
   height: 2px;
   background-color: red;
-  transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+  transition: width 0.3s ease, left 0.3s ease;
 }
 
 .link:hover::after {
   width: 100%;
   left: 0;
+}
+
+.link {
+  color: white;
+}
+
+.link:hover {
+  color: red;
+}
+
+/* --------------------
+     HOMEPAGE
+--------------------    */
+
+.card img {
+  width: 100%;
+  height: 400px;
+}
+
+.card {
+  max-width: 100%;
+  border-end-end-radius: 1.25rem;
+  border-end-start-radius: 1.25rem;
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  filter: drop-shadow(5px 5px 10px red);
+}
+
+/* --------------------
+    MOVIEPAGE
+--------------------    */
+
+.card-movie {
+  height: 600px;
+  border-radius: 1.25rem;
+}
+
+.card-movie:hover {
+  filter: drop-shadow(5px 5px 10px red);
+}
+
+.reviews {
+  border-radius: 1.25rem;
+}
+
+.reviews:hover {
+  filter: drop-shadow(5px 5px 10px red);
+}
+
+.comment {
+  border-bottom: 1px solid black;
+}
+
+.back:hover {
+  color: red;
+}
+
+/* --------------------
+    FOOTER
+--------------------    */
+
+.footer {
+  border: 1px solid red;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.footer:hover {
+  filter: drop-shadow(5px 5px 10px red);
+}
+
+/* --------------------
+    BUTTON - CARD
+--------------------    */
+
+.btn-card {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease-in-out;
+}
+.btn-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: darkred;
+  transition: left 0.5s ease-in-out;
+}
+
+.btn-card:hover::before {
+  left: 0;
+}
+
+.btn-card:hover {
+  box-shadow: 0px 0px 15px red;
+}
+
+/* --------------------
+    CARD - MOVIE
+--------------------    */
+
+.card-movie {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-video {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.card-movie:hover .bg-video {
+  opacity: 1;
+}
+
+/* --------------------
+    TITLE - MOVIE
+--------------------    */
+
+@keyframes spinFadeIn {
+  0% {
+    opacity: 0;
+    transform: rotate(-360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+.animate-logo {
+  animation: spinFadeIn 2s ease-out;
 }
