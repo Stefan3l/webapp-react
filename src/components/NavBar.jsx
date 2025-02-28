@@ -11,7 +11,7 @@ export default function NavBar() {
       <div className="flex pr-2.5">
         <ul className="flex gap-3.5">
           <li className="cursor-pointer">
-            <a className="font-medium link" href="#">
+            <a className="font-medium link" href="/">
               Home
             </a>
           </li>

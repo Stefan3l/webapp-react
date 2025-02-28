@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <section className=" footer  container max-w-screen-xl mx-auto flex justify-center gap-40 mt-20 ">
+    <section className=" footer  container max-w-screen-xl mx-auto flex justify-center gap-40 mt-20  ">
       <div className=" rounded-lg   ">
         <h2 className="text-red-900 font-bold">Company</h2>
         <ul className=" text-red-600 mt-3.5 space-y-2 ">

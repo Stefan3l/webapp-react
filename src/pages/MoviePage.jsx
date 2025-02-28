@@ -4,8 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 // UI
-
 import Stars from "../components/ui/StarsIcon";
+import FormData from "../components/ui/FormData";
 
 export default function MoviePage() {
   const { id } = useParams();
@@ -57,6 +57,12 @@ export default function MoviePage() {
   };
 
   useEffect(fetchMovie, [id, navigate]);
+  if (!movie) {
+    return <p className="text-white">Loading...</p>;
+  }
+
+  const starsID = Math.ceil(movie.avg_vote);
+  const emptyStarsID = 5 - starsID;
 
   return (
     <div className="px-5 space-y-6 mt-40">
@@ -68,6 +74,9 @@ export default function MoviePage() {
       <div className="flex bg-gray-400 text-white card-movie gap-2.5">
         <div className="">
           <img className="h-full" src={movie.image} alt={movie.title} />
+        </div>
+        <div>
+          <Stars stars={starsID} emptyStars={emptyStarsID} />
         </div>
         <div className="ml-5 mt-8 space-y-4 relative w-[700px] h-[550px]">
           <video
@@ -102,6 +111,7 @@ export default function MoviePage() {
           );
         })}
       </div>
+      <FormData />
     </div>
   );
 }

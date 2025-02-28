@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import StarsIcon from "../components/ui/StarsIcon";
+import Button from "./ui/Button";
 
 export default function Card({ image, title, stars, emptyStars, link }) {
   return (
@@ -11,7 +12,7 @@ export default function Card({ image, title, stars, emptyStars, link }) {
         <StarsIcon stars={stars} emptyStars={emptyStars} />
       </div>
       <Link to={link}>
-        <button className=" mb-2 btn-card">View more...</button>
+        <Button>View more...</Button>
       </Link>
     </div>
   );
