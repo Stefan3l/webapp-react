@@ -21,8 +21,8 @@ export default function NavBar() {
             </a>
           </li>
           <li className="cursor-pointer">
-            <a className="font-medium link" href="#">
-              About
+            <a className="font-medium link" href="/crea">
+              Crea
             </a>
           </li>
         </ul>

@@ -53,7 +53,9 @@ export default function MoviePage() {
             </div>
             <p className="text-2xl font-medium">year: {movie.release_year}</p>
             <p className="text-2xl font-medium">{movie.genre}</p>
-            <p className="text-xl font-medium">{movie.abstract}</p>
+            <p className="text-xl font-medium truncate pr-2">
+              {movie.abstract}
+            </p>
           </div>
           <div>
             <video
