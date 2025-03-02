@@ -5,43 +5,12 @@ import { Link } from "react-router-dom";
 
 // UI
 import Stars from "../components/ui/StarsIcon";
-import FormData from "../components/ui/FormData";
+import FormAddReview from "../components/FormAddReview";
 
 export default function MoviePage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [movie, setMovie] = useState({});
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const card = document.querySelector(".card-movie");
-
-    if (video && card) {
-      card.addEventListener("mouseenter", () => {
-        video.style.opacity = "1";
-        video.play();
-      });
-
-      card.addEventListener("mouseleave", () => {
-        video.style.opacity = "0";
-        video.pause();
-        video.currentTime = 0; // Resetează video-ul la început
-      });
-
-      return () => {
-        card.removeEventListener("mouseenter", () => {
-          video.style.opacity = "1";
-          video.play();
-        });
-        card.removeEventListener("mouseleave", () => {
-          video.style.opacity = "0";
-          video.pause();
-          video.currentTime = 0;
-        });
-      };
-    }
-  }, []);
+  const [movie, setMovie] = useState();
 
   const fetchMovie = () => {
     axios
@@ -75,23 +44,25 @@ export default function MoviePage() {
         <div className="">
           <img className="h-full" src={movie.image} alt={movie.title} />
         </div>
-        <div>
-          <Stars stars={starsID} emptyStars={emptyStarsID} />
-        </div>
+
         <div className="ml-5 mt-8 space-y-4 relative w-[700px] h-[550px]">
-          <video
-            ref={videoRef}
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            src="/video/titanic-thrailer.mp4"
-            loop
-            muted
-            autoPlay
-          ></video>
           <div className="space-y-4">
             <h1 className="text-white font-bold text-4xl">{movie.title}</h1>
+            <div className="text-amber-400">
+              <Stars stars={starsID} emptyStars={emptyStarsID} />
+            </div>
             <p className="text-2xl font-medium">year: {movie.release_year}</p>
             <p className="text-2xl font-medium">{movie.genre}</p>
             <p className="text-xl font-medium">{movie.abstract}</p>
+          </div>
+          <div>
+            <video
+              className=" top-0 left-0 w-full h-full object-cover rounded-xl"
+              src="/video/titanic-thrailer.mp4"
+              loop
+              muted
+              autoPlay
+            ></video>
           </div>
         </div>
       </div>
@@ -111,7 +82,7 @@ export default function MoviePage() {
           );
         })}
       </div>
-      <FormData />
+      <FormAddReview onFormSubmitted={fetchMovie} />
     </div>
   );
 }

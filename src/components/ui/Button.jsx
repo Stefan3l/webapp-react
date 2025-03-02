@@ -1,3 +1,7 @@
-export default function Button({ children }) {
-  return <button className=" mb-2 btn-card">{children}</button>;
+export default function Button({ type, children }) {
+  return (
+    <button type={type} className=" mb-2 btn-card">
+      {children}
+    </button>
+  );
 }
